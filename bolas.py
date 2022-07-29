@@ -26,14 +26,14 @@ class Bola:
         pg.draw.rect(pantalla, self.color, (self.x, self.y, self.w, self.h))
         
 pg.init()
-
+cantidad_bolas = 100
 tam = (800, 600)
 diccionario = {}
 pantalla_principal = pg.display.set_mode(tam)
 pg.display.set_caption('Bolitas rebotando')
-for i in range (100):
+for i in range (cantidad_bolas):
     color = (random.randint(0,255),random.randint(0,255), random.randint(0,255))
-    velocidad = (random.random(),random.random())
+    velocidad = (random.uniform(-1,1),random.uniform(-1,1))
     diccionario[i] = Bola(400, 300, color = color, vx = velocidad[0], vy = velocidad[1])
 
 
