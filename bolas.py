@@ -29,12 +29,14 @@ pg.init()
 cantidad_bolas = 100
 tam = (800, 600)
 diccionario = {}
+lista = []
 pantalla_principal = pg.display.set_mode(tam)
 pg.display.set_caption('Bolitas rebotando')
 for i in range (cantidad_bolas):
     color = (random.randint(0,255),random.randint(0,255), random.randint(0,255))
     velocidad = (random.uniform(-1,1),random.uniform(-1,1))
-    diccionario[i] = Bola(400, 300, color = color, vx = velocidad[0], vy = velocidad[1])
+    lista.append(Bola(400, 300, color = color, vx = velocidad[0], vy = velocidad[1]))
+    #diccionario[i] = Bola(400, 300, color = color, vx = velocidad[0], vy = velocidad[1])
 
 
 game_over = False
@@ -46,8 +48,10 @@ while not game_over:
 
     pantalla_principal.fill((0,0,255))
     for i in range(100):
-        diccionario[i].dibujar(pantalla_principal)
-        diccionario[i].mover()
+        #diccionario[i].dibujar(pantalla_principal)
+        #diccionario[i].mover()
+        lista[i].dibujar(pantalla_principal)
+        lista[i].mover()
 
     
     pg.display.flip()
